@@ -65,4 +65,12 @@ let luckyNumber3 = Math.floor(Math.random() * 100);
 let luckyNumber4 = Math.floor(Math.random() * 100);
 let luckyNumber5 = Math.floor(Math.random() * 100);
 
+//has indentation on every line after the first. decided to go with 
+//individual console.logs for each part of the message.
+console.log(fortuneQuotes[fortunePointer], '\n',
+`Lucky numbers: ${luckyNumber1}, ${luckyNumber2}, ${luckyNumber3}, ${luckyNumber4}, ${luckyNumber5}`, '\n',
+"Increase your luck by wearing the color: " + colors[colorPointer]);
+
+
+
 
