@@ -50,23 +50,77 @@ const fortuneQuotes = ["Do not be afraid of competition.",
 "Happy News is on its way."];
 
 //Array containing the lucky colors
-const colors = ['blue', 'yellow', 'green', 'red', 'purple', 'orange', 'black', 'white', 'brown', 'pink', 'gold', 'silver', 'gray'];
+const colors = ['blue', 'yellow', 'green', 'red', 'purple', 'orange', 'black', 'white', 'brown', 'pink',
+ 'gold', 'silver', 'gray'];
 
-//random number used to pick a phrase from fortuneQuotes
-let fortunePointer = Math.floor(Math.random() * 43);
+//random number generator function
+const randomNumGenerator = num => {
+    let random = Math.floor(Math.random() * num);
+    return random;
+};
 
-//random number used to pick a color from colors
-let colorPointer = Math.floor(Math.random() * 14);
+//function used to obtain a random element from an array
+const fetch = (array) => {
 
-//random numbers used as the lucky numbers
-let luckyNumber1 = Math.floor(Math.random() * 100);
-let luckyNumber2 = Math.floor(Math.random() * 100);
-let luckyNumber3 = Math.floor(Math.random() * 100);
-let luckyNumber4 = Math.floor(Math.random() * 100);
-let luckyNumber5 = Math.floor(Math.random() * 100);
+    let pointer = randomNumGenerator(array.length);
+    let element = array[pointer];
+    return element; 
+};
 
-//has indentation on every line after the first. decided to go with 
-//individual console.logs for each part of the message.
-console.log(fortuneQuotes[fortunePointer]);
-console.log(`Lucky numbers: ${luckyNumber1}, ${luckyNumber2}, ${luckyNumber3}, ${luckyNumber4}, ${luckyNumber5}`);
-console.log("Increase your luck by wearing the color: " + colors[colorPointer]);
+//lucky number generator function
+const luckyNums = (num) => {
+
+    let numbers = [];
+    let luckyNumber = 0;
+
+    for(i=0 ; i<num; i++){
+        luckyNumber = randomNumGenerator(100);
+        numbers.push(luckyNumber);
+    }
+
+    return numbers;
+};
+
+//object factory function
+const objectFactory = (quote, numString, color) => {
+  return {
+        quote: quote,
+        luckyNumbers: numString,
+        color: color
+    };
+};
+
+
+//function that creates a fortune as an object
+const fortuneGenerator = () => {
+
+    //fetch a random quote and color
+    let quote = fetch(fortuneQuotes);
+    let color = `Dress in ${fetch(colors)} to increase your luck`;
+
+    //get some lucky numbers
+    let numbers = luckyNums(5);
+    //transform the numbers array into a string
+    let numString = "Lucky Numbers: " + numbers.join(', ');
+
+    //create an fortune message object
+    let fortune =  objectFactory(quote, color, numString);
+
+    return fortune;
+
+};
+
+//function that outputs the fortune message
+const outputFortune = () => {
+
+    let fortune = fortuneGenerator();
+
+    for(let prop in fortune){
+        console.log(fortune[prop]);
+    }
+};
+
+
+//test the function
+outputFortune();
+
