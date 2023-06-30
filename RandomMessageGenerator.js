@@ -9,7 +9,7 @@
 const fortuneQuotes = ["Do not be afraid of competition.",
 "An exciting opportunity lies ahead of you.",
 "You love peace.",
-"Get your mind set…confidence will lead you on.",
+"Get your mind set… confidence will lead you on.",
 "You will always be surrounded by true friends.",
 "Sell your ideas-they have exceptional merit.",
 "You should be able to undertake and complete anything.",
@@ -67,10 +67,6 @@ let luckyNumber5 = Math.floor(Math.random() * 100);
 
 //has indentation on every line after the first. decided to go with 
 //individual console.logs for each part of the message.
-console.log(fortuneQuotes[fortunePointer], '\n',
-`Lucky numbers: ${luckyNumber1}, ${luckyNumber2}, ${luckyNumber3}, ${luckyNumber4}, ${luckyNumber5}`, '\n',
-"Increase your luck by wearing the color: " + colors[colorPointer]);
-
-
-
-
+console.log(fortuneQuotes[fortunePointer]);
+console.log(`Lucky numbers: ${luckyNumber1}, ${luckyNumber2}, ${luckyNumber3}, ${luckyNumber4}, ${luckyNumber5}`);
+console.log("Increase your luck by wearing the color: " + colors[colorPointer]);
