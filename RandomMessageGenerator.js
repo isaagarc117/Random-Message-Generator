@@ -53,7 +53,7 @@ const fortuneQuotes = ["Do not be afraid of competition.",
 const colors = ['blue', 'yellow', 'green', 'red', 'purple', 'orange', 'black', 'white', 'brown', 'pink',
  'gold', 'silver', 'gray'];
 
-//random number generator function
+//function that generates random whole number with the max = num -1
 const randomNumGenerator = num => {
     let random = Math.floor(Math.random() * num);
     return random;
